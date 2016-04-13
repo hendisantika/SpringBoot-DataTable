@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="//cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css" />
+
+<title>Spring with DataTables</title>
+</head>
+<body>
+	<div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+
+		<div class="row" style="margin-bottom: 20px;">
+			<button class="btn btn-primary" type="button" data-toggle="collapse"
+				data-target="#collapseFilters" aria-expanded="false"
+				aria-controls="collapseFilters">Show filters</button>
+		</div>
+
+		<div class="panel panel-default collapse" id="collapseFilters">
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-sm-2">Role</label>
+					<div id="role_selector" class="btn-group" role="group"
+						aria-label="role">
+						<button type="button" class="btn btn-default">ADMIN</button>
+						<button type="button" class="btn btn-default">AUTHOR</button>
+						<button type="button" class="btn btn-default">USER</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2">Status</label>
+					<div id="status_selector" class="btn-group" role="group"
+						aria-label="status">
+						<button type="button" class="btn btn-default">ACTIVE</button>
+						<button type="button" class="btn btn-default">BLOCKED</button>
+					</div>
+				</div>
+				<!-- [Eclipse] remove 'input' from Preferences > Web > HTML Files > Editor -->
+				<div class="form-inline form-group">
+					<label class="col-sm-2">Likes</label>
+					<div class="input-group">
+						<span class="input-group-addon">&gt;</span>
+						<input id="likes_lt" class="form-control"
+							placeholder="More than..."></input>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">&lt;</span>
+						<input id="likes_gt" class="form-control"
+							placeholder="Less than..."></input>
+					</div>
+				</div>
+			</div>
+		</div>
+		<table id="users" class="table">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>role</th>
+					<th>status</th>
+					<th>town</th>
+					<th>likes</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+	<script type="text/javascript"
+		src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript"
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/lib/jquery.spring-friendly.min.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
