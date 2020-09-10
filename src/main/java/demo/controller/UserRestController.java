@@ -1,26 +1,6 @@
 package demo.controller;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.annotation.PostConstruct;
-import javax.validation.Valid;
-
-import lombok.val;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
-import org.springframework.data.jpa.datatables.parameter.ColumnParameter;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.annotation.JsonView;
-
 import demo.model.Address;
 import demo.model.User;
 import demo.model.User.UserRole;
@@ -28,6 +8,22 @@ import demo.model.User.UserStatus;
 import demo.repository.AddressRepository;
 import demo.repository.UserRepository;
 import demo.specification.CustomSpecifications;
+import lombok.val;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.datatables.mapping.Column;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.PostConstruct;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestController
 public class UserRestController {
@@ -44,7 +40,7 @@ public class UserRestController {
 	@JsonView(DataTablesOutput.View.class)
 	@RequestMapping(value = "/data/users", method = RequestMethod.GET)
 	public DataTablesOutput<User> getUsers(@Valid DataTablesInput input) {
-		for (ColumnParameter parameter : input.getColumns()) {
+		for (Column parameter : input.getColumns()) {
 			if (!parameter.getData().equalsIgnoreCase("likes"))
 				continue;
 			// create a specification based on the search value
@@ -65,7 +61,7 @@ public class UserRestController {
 		addresses.add(Address.builder().town("NYC").build());
 		addresses.add(Address.builder().town("Las Vegas").build());
 		addresses.add(Address.builder().town("Miami").build());
-		addressRepository.save(addresses);
+		addressRepository.saveAll(addresses);
 
 		for (int i = 0; i < 42; i++) {
 			// @formatter:off
