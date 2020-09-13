@@ -8,3 +8,9 @@ Demo Spring Boot DataTable
 4. Open your favorite browser: http://localhost:8080
 
 ### Screen shot
+
+Home Page
+
+![Home Page](img/home1.png "Home Page")
+
+![Home Page](img/home2.png "Home Page")
