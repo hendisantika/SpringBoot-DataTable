@@ -1,14 +1,14 @@
 init = function() {
-    var table = $('table#users').DataTable({
-        'ajax' : '/data/users',
-        'serverSide' : true,
-        'lengthMenu' : [[10, 25, 50, -1], [10, 25, 50, 'All']],
-        columns : [ {
-            data : 'id'
+    var table = $('table#sample').DataTable({
+        'ajax': '/data/users',
+        'serverSide': true,
+        'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
+        columns: [{
+            data: 'id'
         }, {
-            data : 'name'
+            data: 'name'
         }, {
-            data : 'role'
+            data: 'role'
         }, {
             data : 'status'
         }, {
@@ -70,13 +70,5 @@ function flatten(params) {
 
     return params;
 }
-
-$('table#sample').DataTable({
-    'ajax': {
-        'url': '/data/users',
-        'type': 'GET',
-        'data': flatten
-    }
-})
 
 $(document).ready(init);
