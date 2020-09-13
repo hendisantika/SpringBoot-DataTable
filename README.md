@@ -6,3 +6,5 @@ Demo Spring Boot DataTable
 2. Go inside the folder: `cd SpringBoot-DataTable`
 3. Run the application: `gradle clean bootRun --info`
 4. Open your favorite browser: http://localhost:8080
+
+### Screen shot
